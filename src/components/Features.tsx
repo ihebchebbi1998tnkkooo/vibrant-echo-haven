@@ -1,33 +1,43 @@
-import React from "react";
-import Card from "./Card";
-import { Rocket, Zap, Shield } from "lucide-react";
+import { Code, Palette, Zap } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+const features = [
+  {
+    title: "Fast Development",
+    description: "Quick iterations with hot reload and modern development tools.",
+    icon: <Zap className="w-10 h-10 text-blue-500" />,
+  },
+  {
+    title: "Beautiful Design",
+    description: "Stunning UI components and responsive layouts out of the box.",
+    icon: <Palette className="w-10 h-10 text-purple-500" />,
+  },
+  {
+    title: "Clean Code",
+    description: "Well-structured TypeScript code following best practices.",
+    icon: <Code className="w-10 h-10 text-pink-500" />,
+  },
+];
 
 const Features = () => {
   return (
-    <section id="features" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
-          Amazing Features
-        </h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          <Card
-            icon={<Rocket />}
-            title="Fast Performance"
-            description="Lightning-fast loading times and smooth interactions for the best user experience."
-          />
-          <Card
-            icon={<Zap />}
-            title="Easy to Use"
-            description="Intuitive interface designed for both beginners and professionals."
-          />
-          <Card
-            icon={<Shield />}
-            title="Secure"
-            description="Built with security in mind to protect your data and privacy."
-          />
+    <div className="py-20 px-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <Card key={index} className="hover-card">
+              <CardHeader>
+                <div className="mb-4">{feature.icon}</div>
+                <CardTitle>{feature.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">{feature.description}</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

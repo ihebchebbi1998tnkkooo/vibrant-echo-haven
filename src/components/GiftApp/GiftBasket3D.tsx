@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Product } from '@/types/product';
-import { Gift, Plus, Package } from 'lucide-react';
+import { Gift, Plus, Package, X } from 'lucide-react';
 import { playTickSound } from '@/utils/audio';
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -18,19 +19,23 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import ProductDetailModal from '../ProductDetailModal';
 
 interface GiftBasket3DProps {
   items: (Product & { size?: string; quantity?: number })[];
   onItemDrop?: (item: Product, size?: string, quantity?: number) => void;
   onItemClick?: (item: Product) => void;
+  onItemRemove?: (itemId: number) => void;
 }
 
-const GiftBasket3D = ({ items, onItemDrop, onItemClick }: GiftBasket3DProps) => {
+const GiftBasket3D = ({ items, onItemDrop, onItemClick, onItemRemove }: GiftBasket3DProps) => {
   const [isDraggingOver, setIsDraggingOver] = useState(false);
   const [showSizeDialog, setShowSizeDialog] = useState(false);
   const [draggedProduct, setDraggedProduct] = useState<Product | null>(null);
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedQuantity, setSelectedQuantity] = useState(1);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [showProductModal, setShowProductModal] = useState(false);
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -57,6 +62,18 @@ const GiftBasket3D = ({ items, onItemDrop, onItemClick }: GiftBasket3DProps) => 
       setDraggedProduct(null);
       setSelectedSize('');
       setSelectedQuantity(1);
+    }
+  };
+
+  const handleProductClick = (product: Product) => {
+    setSelectedProduct(product);
+    setShowProductModal(true);
+  };
+
+  const handleRemoveItem = (itemId: number) => {
+    if (onItemRemove) {
+      onItemRemove(itemId);
+      playTickSound();
     }
   };
 
@@ -90,9 +107,18 @@ const GiftBasket3D = ({ items, onItemDrop, onItemClick }: GiftBasket3DProps) => 
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.8, y: -20 }}
                     transition={{ duration: 0.3, type: "spring", stiffness: 200 }}
-                    onClick={() => onItemClick?.(item)}
-                    className="group bg-white rounded-xl shadow-sm p-4 border border-gray-50 hover:shadow-md transition-all transform hover:-translate-y-1 cursor-pointer"
+                    onClick={() => handleProductClick(item)}
+                    className="group relative bg-white rounded-xl shadow-sm p-4 border border-gray-50 hover:shadow-md transition-all transform hover:-translate-y-1 cursor-pointer"
                   >
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleRemoveItem(item.id);
+                      }}
+                      className="absolute top-2 right-2 p-1 rounded-full bg-red-50 hover:bg-red-100 transition-colors z-10"
+                    >
+                      <X className="w-4 h-4 text-red-500" />
+                    </button>
                     <motion.div 
                       className="aspect-square rounded-lg overflow-hidden bg-gray-50 mb-3"
                       whileHover={{ scale: 1.05 }}
@@ -181,15 +207,18 @@ const GiftBasket3D = ({ items, onItemDrop, onItemClick }: GiftBasket3DProps) => 
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Sélectionnez la taille et la quantité</DialogTitle>
+            <DialogDescription>
+              Choisissez la taille et la quantité souhaitées pour votre article
+            </DialogDescription>
           </DialogHeader>
-          <div className="grid gap-4 py-4">
-            <div className="grid gap-2">
-              <Label htmlFor="size">Taille</Label>
+          <div className="grid gap-6 py-4">
+            <div className="space-y-4">
+              <Label htmlFor="size" className="text-base">Taille</Label>
               <Select
                 value={selectedSize}
                 onValueChange={setSelectedSize}
               >
-                <SelectTrigger>
+                <SelectTrigger className="w-full">
                   <SelectValue placeholder="Sélectionnez une taille" />
                 </SelectTrigger>
                 <SelectContent>
@@ -201,13 +230,13 @@ const GiftBasket3D = ({ items, onItemDrop, onItemClick }: GiftBasket3DProps) => 
                 </SelectContent>
               </Select>
             </div>
-            <div className="grid gap-2">
-              <Label htmlFor="quantity">Quantité</Label>
+            <div className="space-y-4">
+              <Label htmlFor="quantity" className="text-base">Quantité</Label>
               <Select
                 value={selectedQuantity.toString()}
                 onValueChange={(value) => setSelectedQuantity(Number(value))}
               >
-                <SelectTrigger>
+                <SelectTrigger className="w-full">
                   <SelectValue placeholder="Sélectionnez la quantité" />
                 </SelectTrigger>
                 <SelectContent>
@@ -240,6 +269,17 @@ const GiftBasket3D = ({ items, onItemDrop, onItemClick }: GiftBasket3DProps) => 
           </div>
         </DialogContent>
       </Dialog>
+
+      {selectedProduct && (
+        <ProductDetailModal
+          isOpen={showProductModal}
+          onClose={() => {
+            setShowProductModal(false);
+            setSelectedProduct(null);
+          }}
+          product={selectedProduct}
+        />
+      )}
     </>
   );
 };

@@ -48,6 +48,20 @@ const GiftApp = () => {
     });
   };
 
+  const handleItemRemove = (itemId: number) => {
+    setSelectedItems((prev) => prev.filter(item => item.id !== itemId));
+    toast({
+      title: "Article Retiré",
+      description: "L'article a été retiré de votre pack cadeau",
+      duration: 5000,
+      style: {
+        backgroundColor: '#700100',
+        color: 'white',
+        border: '1px solid #590000',
+      },
+    });
+  };
+
   const handleProductClick = (product: Product) => {
     setSelectedProduct(product);
     setIsDetailModalOpen(true);
@@ -139,6 +153,7 @@ const GiftApp = () => {
               items={selectedItems}
               onItemDrop={handleItemDrop}
               onItemClick={handleProductClick}
+              onItemRemove={handleItemRemove}
             />
           </motion.div>
 

@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => ({
     allowedHosts: [
       "febb3f55-437d-4bef-8e06-d5d0a5b92137.lovableproject.com",
       "cf52ad02-b557-4a86-ae04-588f4c91f3fa.lovableproject.com",
+      "5cfaa2de-9fc8-4d68-902c-4eed1e76e9b5.lovableproject.com",
       "localhost"
     ]
   },

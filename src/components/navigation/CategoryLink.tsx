@@ -77,11 +77,11 @@ const CategoryLink: React.FC<CategoryLinkProps> = ({
                             : "hover:bg-gray-50 hover:shadow-md"
                         )}
                       >
-                        <div className="aspect-video rounded-lg overflow-hidden bg-gray-100 mb-2 shadow-sm group-hover:shadow-md transition-shadow relative">
+                        <div className="aspect-square rounded-lg overflow-hidden bg-gray-100 mb-2 shadow-sm group-hover:shadow-md transition-shadow relative">
                           <Image 
                             src={item.image} 
                             alt={item.title}
-                            className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-300"
+                            className="w-full h-full object-contain p-2"
                           />
                           {isItemActive && (
                             <div className="absolute top-2 right-2 bg-primary text-white p-1.5 rounded-full">

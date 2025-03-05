@@ -1,4 +1,3 @@
-
 export interface MenuItem {
   title: string;
   image: string;
@@ -34,12 +33,6 @@ export const menuItems: MenuItem[] = [
         description: "Protection et style pour votre cuisine",
         image: "/Subitems/TablierCuisine.png",
         path: "/vetements-cuisine/tabliers"
-      },
-      {
-        title: "Pantalons",
-        description: "Confort et durabilité garantis",
-        image: "/VetementDeCuisine/PontalonDeChef.jpg",
-        path: "/vetements-cuisine/pantalons"
       },
       {
         title: "Vestes de Boulanger",
@@ -209,4 +202,3 @@ export const menuItems: MenuItem[] = [
     ]
   }
 ];
-

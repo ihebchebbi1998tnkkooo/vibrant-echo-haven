@@ -64,15 +64,15 @@ const CategoryPage = () => {
         </div>
       </div>
 
-      {/* Hero Section - Reduced height by 10% */}
-      <div className="relative h-[360px] md:h-[450px] overflow-hidden">
+      {/* Hero Section - Reduced height by another 10% */}
+      <div className="relative h-[324px] md:h-[405px] overflow-hidden">
         <Image
           src={bannerImage}
           alt={pageConfig.title}
           className="w-full h-full object-contain object-center"
           fallback="/placeholder.png"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40" />
+        {/* Removed the dark overlay gradient */}
         <div className="absolute inset-0 flex items-center justify-center p-4">
           <div className="text-center text-white max-w-4xl mx-auto px-4">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">{pageConfig.title}</h1>

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -74,15 +73,15 @@ const CategoryTemplate = ({ data, parentPath, parentName }: CategoryTemplateProp
         </Link>
       </div>
 
-      {/* Hero Section - Reduced height by 10% */}
+      {/* Hero Section - Reduced height by another 10% */}
       <div className="relative rounded-xl overflow-hidden mb-12">
         <Image 
           src={data.bannerImage}
           alt={data.title}
-          className="w-full h-[270px] md:h-[360px] object-contain object-center"
+          className="w-full h-[243px] md:h-[324px] object-contain object-center"
           fallback="/placeholder.png"
         />
-        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">{data.title}</h1>
             <p className="text-lg md:text-xl max-w-2xl mx-auto">{data.description}</p>

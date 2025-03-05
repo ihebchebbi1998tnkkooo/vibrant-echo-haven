@@ -71,7 +71,7 @@ const CategoryLink: React.FC<CategoryLinkProps> = ({
                         key={item.path}
                         to={item.path}
                         className={cn(
-                          "group block p-3 lg:p-4 space-y-2 rounded-lg transition-all duration-300",
+                          "group block p-2 lg:p-3 space-y-1.5 rounded-lg transition-all duration-300",
                           isItemActive 
                             ? "bg-gray-50 shadow-sm" 
                             : "hover:bg-gray-50 hover:shadow-md"
@@ -90,12 +90,12 @@ const CategoryLink: React.FC<CategoryLinkProps> = ({
                           )}
                         </div>
                         <h3 className={cn(
-                          "font-medium text-sm lg:text-base group-hover:text-primary transition-colors truncate",
+                          "font-medium text-xs lg:text-sm group-hover:text-primary transition-colors truncate",
                           isItemActive ? "text-primary" : "text-gray-900"
                         )}>
                           {item.title}
                         </h3>
-                        <p className="text-xs lg:text-sm text-gray-500 line-clamp-2">{item.description}</p>
+                        <p className="text-xs text-gray-500 line-clamp-2">{item.description}</p>
                         {isItemActive && (
                           <div className="flex items-center text-primary text-xs">
                             <Check className="h-3 w-3 mr-1" /> Sélectionné
@@ -106,7 +106,7 @@ const CategoryLink: React.FC<CategoryLinkProps> = ({
                   })}
                 </div>
                 <div className="col-span-1 flex flex-col items-center md:items-start">
-                  <div className="aspect-square md:aspect-[3/4] rounded-lg overflow-hidden bg-gray-100 w-full max-w-[220px] md:max-w-none shadow-md hover:shadow-lg transition-shadow">
+                  <div className="aspect-[3/4] rounded-lg overflow-hidden bg-gray-100 w-full max-w-[220px] md:max-w-none shadow-md hover:shadow-lg transition-shadow">
                     <Image 
                       src={bannerImage} 
                       alt={topText}

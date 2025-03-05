@@ -26,13 +26,13 @@ export const menuItems: MenuItem[] = [
       {
         title: "Vestes de Chef",
         description: "Collection premium pour cuisiniers professionnels",
-        image: "/VetementDeCuisine/VesteDeChef.jpg",
+        image: "/Subitems/VestesdeChef.png",
         path: "/vetements-cuisine/vestes"
       },
       {
         title: "Tabliers",
         description: "Protection et style pour votre cuisine",
-        image: "/VetementDeCuisine/TablierDeChef.jpg",
+        image: "/Subitems/TablierCuisine.png",
         path: "/vetements-cuisine/tabliers"
       },
       {
@@ -44,19 +44,19 @@ export const menuItems: MenuItem[] = [
       {
         title: "Vestes de Boulanger",
         description: "Tenues adaptées à la boulangerie",
-        image: "/VetementDeBoulanger&patissier/VesteDeBoulanger.jpg",
+        image: "/Subitems/VestesDeBoulanger.png",
         path: "/vetements-cuisine/vestes-boulanger"
       },
       {
         title: "Tabliers Pro",
         description: "Protection maximale pour pâtissiers",
-        image: "/VetementDeBoulanger&patissier/TablierDeBoucher.jpg",
+        image: "/Subitems/TabliersProChef.png",
         path: "/vetements-cuisine/tabliers-pro"
       },
       {
         title: "Vestes Pro Boucher",
         description: "Confort et hygiène pour la boucherie",
-        image: "/VetementDeBoulanger&patissier/VesteProBoucher.jpg",
+        image: "/Subitems/VesteProBoucher.png",
         path: "/vetements-cuisine/vestes-boucher"
       }
     ]
@@ -71,13 +71,13 @@ export const menuItems: MenuItem[] = [
       {
         title: "Uniformes de Service",
         description: "Élégance et confort pour le service",
-        image: "/VetementServiceHotellerie/UniformeDeService.jpg",
+        image: "/Subitems/UniformeDeService.png",
         path: "/vetements-hotellerie/service"
       },
       {
         title: "Tenues d'Accueil",
         description: "Pour un accueil professionnel",
-        image: "/VetementServiceHotellerie/TenueDacceuilHotelBanner.jpg",
+        image: "/Subitems/TenueAcceuil.png",
         path: "/vetements-hotellerie/accueil"
       }
     ]
@@ -92,25 +92,25 @@ export const menuItems: MenuItem[] = [
       {
         title: "Combinaisons",
         description: "Protection intégrale",
-        image: "/VetementDeTravail/CombinaionDeTravail.jpg",
+        image: "/Subitems/Combinaison.png",
         path: "/vetements-travail/combinaisons"
       },
       {
         title: "Vestes de Travail",
         description: "Robustes et fonctionnelles",
-        image: "/VetementDeTravail/VesteDeTravail.jpg",
+        image: "/Subitems/VesteDeTravail.png",
         path: "/vetements-travail/vestes"
       },
       {
         title: "Blouses Médicales",
         description: "Pour les professionnels de santé",
-        image: "/VetementDeTravail/BlouseMedical.jpg",
+        image: "/Subitems/BlousesMedical.png",
         path: "/vetements-travail/blouses"
       },
       {
         title: "Tuniques Médicales",
         description: "Confort et praticité",
-        image: "/VetementDeTravail/TuniqueMedical.png",
+        image: "/Subitems/TuniqueMedical.png",
         path: "/vetements-travail/tuniques"
       }
     ]
@@ -125,13 +125,13 @@ export const menuItems: MenuItem[] = [
       {
         title: "Chaussures Cuisine",
         description: "Sécurité en cuisine",
-        image: "/ChausureDeTravail/ChaussureDeCuisine.jpg",
+        image: "/Subitems/ChaussureCuisine.png",
         path: "/chaussures/cuisine"
       },
       {
         title: "Chaussures Pro",
         description: "Protection renforcée",
-        image: "/ChausureDeTravail/ChaussureDeTravailBanner.jpg",
+        image: "/Subitems/ChaussurePro.png",
         path: "/chaussures/industrie"
       }
     ]
@@ -146,25 +146,25 @@ export const menuItems: MenuItem[] = [
       {
         title: "Pack Restaurant",
         description: "Solution complète pour restaurant",
-        image: "/Packs/PackRestaurant.jpg",
+        image: "/Subitems/PackRestaurant.png",
         path: "/nos-packs/restaurant"
       },
       {
         title: "Pack Café",
         description: "Équipement pour café et brasserie",
-        image: "/Packs/PackCafe.jpg",
+        image: "/Subitems/PackCaffe.png",
         path: "/nos-packs/cafe"
       },
       {
         title: "Pack Hôtel",
         description: "Tout pour votre établissement hôtelier",
-        image: "/Packs/PackHotel.jpg",
+        image: "/Subitems/PackHotel.png",
         path: "/nos-packs/hotel"
       },
       {
         title: "Pack Médecin",
         description: "Équipement complet pour professionnels de santé",
-        image: "/Packs/PackMedecin.jpg",
+        image: "/Subitems/PackMedecin.png",
         path: "/nos-packs/medecin"
       }
     ]
@@ -179,33 +179,34 @@ export const menuItems: MenuItem[] = [
       {
         title: "Drapeaux",
         description: "Drapeaux publicitaires personnalisables",
-        image: "/ProduitsMarketing/DrapeauMarketing.jpg",
+        image: "/Subitems/Drapeaux.png",
         path: "/produits-marketing/drapeaux"
       },
       {
         title: "Mugs",
         description: "Mugs personnalisés pour votre communication",
-        image: "/ProduitsMarketing/MugsPersonalise.jpg",
+        image: "/Subitems/Mugs.png",
         path: "/produits-marketing/mugs"
       },
       {
         title: "Carnets",
         description: "Carnets et bloc-notes personnalisés",
-        image: "/ProduitsMarketing/CarnetPeronalise.jpg",
+        image: "/Subitems/NotebookPersonalisable.png",
         path: "/produits-marketing/carnets"
       },
       {
         title: "Cartes de Visite",
         description: "Cartes de visite professionnelles personnalisées",
-        image: "/SubItems/CarteVisites.png",
+        image: "/Subitems/CarteVisites.png",
         path: "/produits-marketing/cartes-visite"
       },
       {
         title: "Carnets Restaurant",
         description: "Solutions sur mesure pour le secteur de la restauration",
-        image: "/SubItems/NotebookRestaurent.png",
+        image: "/Subitems/NotebookRestaurent.png",
         path: "/produits-marketing/carnets-restaurant"
       }
     ]
   }
 ];
+
